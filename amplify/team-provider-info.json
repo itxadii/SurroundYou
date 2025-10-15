@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-surroundyou-dev-b2110-authRole",
+      "UnauthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-dev-b2110-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-dev-b2110-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-surroundyou-dev-b2110-deployment",
+      "UnauthRoleName": "amplify-surroundyou-dev-b2110-unauthRole",
+      "StackName": "amplify-surroundyou-dev-b2110",
+      "StackId": "arn:aws:cloudformation:ap-south-1:256364432182:stack/amplify-surroundyou-dev-b2110/293bd1c0-a9e0-11f0-bcc3-0a0fe2bb3b25",
+      "AmplifyAppId": "d2837apkr8g2eq"
+    }
+  }
+}
