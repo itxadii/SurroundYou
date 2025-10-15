@@ -66,7 +66,7 @@ Follow these instructions to get the project running on your local machine.
 
 1.  **Clone the repository:**
     ```sh
-    git clone [https://github.com/your-username/surroundyou.git](https://github.com/your-username/surroundyou.git)
+    git clone [https://github.com/itxadii/surroundyou.git](https://github.com/itxadii/surroundyou.git)
     cd surroundyou
     ```
 
@@ -110,3 +110,4 @@ Follow these instructions to get the project running on your local machine.
     npm run dev
     ```
     Your application should now be running on `http://localhost:5173` (or another port specified by Vite) and fully connected to your AWS backend.
+
