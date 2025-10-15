@@ -10,7 +10,27 @@ const Upload = () => {
     };
     return (
         <div className='justify-center items-center text-center '>
-            <h1 className='justify-center text-center text-7xl font-bold mt-50 font-mono'>8D Audio Converter</h1>
+            <div className="flex flex-col items-center justify-center text-white">
+  
+                {/* The top line is a single h1 for semantic correctness */}
+                <h1 className="text-7xl font-bold text-center mt-20">
+                    
+                    {/* Part 1: "8D" with a gradient color */}
+                    <span className="bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                    8D
+                    </span>
+
+                    {/* Part 2: "Audio" as plain, bold text */}
+                    <span>
+                    {' '}Audio
+                    </span>
+
+                </h1>
+                <h2 className="text-5xl font-thin mt-4">
+                    Converter
+                </h2>
+
+                </div>
             <br></br>
             <label
             htmlFor="fileInput"
