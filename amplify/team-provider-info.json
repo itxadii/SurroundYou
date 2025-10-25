@@ -10,6 +10,14 @@
       "StackName": "amplify-surroundyou-dev-b2110",
       "StackId": "arn:aws:cloudformation:ap-south-1:256364432182:stack/amplify-surroundyou-dev-b2110/293bd1c0-a9e0-11f0-bcc3-0a0fe2bb3b25",
       "AmplifyAppId": "d2837apkr8g2eq"
+    },
+    "categories": {
+      "auth": {
+        "surroundyouaa01eaad": {}
+      },
+      "function": {
+        "surroundyoufunction": {}
+      }
     }
   }
 }
