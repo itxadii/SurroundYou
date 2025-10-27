@@ -1,7 +1,22 @@
 {
+  "api": {
+    "SurroundYouAPI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "LambdaAPI"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
   "auth": {
-    "surroundyouaa01eaad": {
-      "customAuth": false,
+    "surroundyou": {
       "dependsOn": [],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
@@ -16,38 +31,45 @@
           "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [
-          "EMAIL"
-        ],
+        "usernameAttributes": [],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
       "providerPlugin": "awscloudformation",
-      "service": "Cognito"
+      "service": "Cognito",
+      "serviceType": "managed"
     }
   },
   "function": {
-    "surroundyoufunction": {
+    "LambdaAPI": {
       "build": true,
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_LambdaAPI_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaAPI"
+        }
+      ]
+    },
+    "AMPLIFY_function_LambdaAPI_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "LambdaAPI"
+        }
+      ]
+    }
+  },
   "storage": {
     "SurroundYouStorage": {
-      "dependsOn": [
-        {
-          "attributes": [
-            "Name",
-            "Arn",
-            "LambdaExecutionRole"
-          ],
-          "category": "function",
-          "resourceName": "surroundyoufunction"
-        }
-      ],
+      "dependsOn": [],
       "providerPlugin": "awscloudformation",
       "service": "S3"
     }

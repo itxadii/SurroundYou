@@ -11,6 +11,5 @@
     "CREATE_AND_UPDATE",
     "READ"
   ],
-  "groupAccess": {},
-  "triggerFunction": "surroundyoufunction"
+  "groupAccess": {}
 }

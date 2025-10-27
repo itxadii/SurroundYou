@@ -9,14 +9,24 @@
       "UnauthRoleName": "amplify-surroundyou-dev-b2110-unauthRole",
       "StackName": "amplify-surroundyou-dev-b2110",
       "StackId": "arn:aws:cloudformation:ap-south-1:256364432182:stack/amplify-surroundyou-dev-b2110/293bd1c0-a9e0-11f0-bcc3-0a0fe2bb3b25",
-      "AmplifyAppId": "d2837apkr8g2eq"
+      "AmplifyAppId": "d2837apkr8g2eq",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-surroundyou-dev-b2110-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
-      "auth": {
-        "surroundyouaa01eaad": {}
+      "storage": {
+        "SurroundYouStorage": {}
       },
       "function": {
-        "surroundyoufunction": {}
+        "LambdaAPI": {
+          "deploymentBucketName": "amplify-surroundyou-dev-b2110-deployment",
+          "s3Key": "amplify-builds/LambdaAPI-32494e78567252473934-build.zip"
+        }
+      },
+      "auth": {
+        "surroundyou": {}
+      },
+      "api": {
+        "SurroundYouAPI": {}
       }
     }
   }
