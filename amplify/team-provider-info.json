@@ -19,7 +19,7 @@
       "function": {
         "LambdaAPI": {
           "deploymentBucketName": "amplify-surroundyou-dev-b2110-deployment",
-          "s3Key": "amplify-builds/LambdaAPI-32494e78567252473934-build.zip"
+          "s3Key": "amplify-builds/LambdaAPI-4e482b464e65682f6e4a-build.zip"
         }
       },
       "auth": {
