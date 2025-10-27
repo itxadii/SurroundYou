@@ -146,7 +146,7 @@ const Upload = () => {
                         </a>
                     )}
                 </div>
-                <input id="fileInput" type="file" accept="audio/mp3" className="hidden" onChange={handleFileChange} />
+                <input id="fileInput" type="file" accept=".mp3" className="hidden" onChange={handleFileChange} />
             </label>
             
             {selectedFile && !processingStatus && (
