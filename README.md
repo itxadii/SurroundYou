@@ -41,7 +41,7 @@ What followed was a real-world education in distributed systems:
 
 The application uses a **decoupled, event-driven architecture** to process audio files asynchronously.
 
-![Architecture Diagram](https://lucid.app/lucidchart/5b01e82b-cbf1-42ae-a722-8bcdffeeb5cb/edit?viewport_loc=-718%2C-178%2C2860%2C1175%2C0_0&invitationId=inv_9a3b2110-38a5-4215-806b-d29cf94e9360)
+[Architecture Diagram](https://lucid.app/lucidchart/5b01e82b-cbf1-42ae-a722-8bcdffeeb5cb/edit?viewport_loc=-718%2C-178%2C2860%2C1175%2C0_0&invitationId=inv_9a3b2110-38a5-4215-806b-d29cf94e9360)
 
 ### The Workflow
 
@@ -190,4 +190,5 @@ If this project helped you understand event-driven architectures or gave you ide
 ---
 
 **Built with ☕, countless CloudWatch logs, and way too much IAM debugging**
+
 
