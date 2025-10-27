@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-Vite-61DAFB)](https://reactjs.org/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB)](https://www.python.org/)
 
-**[🚀 Live Demo](https://main.d2837apkr8g2eq.amplifyapp.com/)** | **[📝 Read the Build Story](#)**
+**[🚀 Live Demo](https://main.d2837apkr8g2eq.amplifyapp.com/)** | **[📝 Read the Build Story](https://www.linkedin.com/posts/xadi_aws-cloudcomputing-serverless-activity-7388656205344391168-vEMi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEYGzLYBBfd1jEVjlsJ8g02hw5MxiYzVAZE)**
 
 ---
 
@@ -23,7 +23,7 @@ But more importantly, **this project is a demonstration of building robust, scal
 
 This project started with a simple goal: use a Python script and an AWS Lambda function to process audio.
 
-**The Problem:** Lambda has a 250MB deployment package limit. My scientific computing libraries (`numpy`, `scipy`) were too large.
+**The Problem:** Lambda has a 250MB deployment package limit. My scientific computing libraries (`numpy`, `scipy`, `ffmpeg`) were too large.
 
 **The Pivot:** Complete re-architecture from a simple Lambda function to a container-based workflow using AWS Fargate.
 
@@ -41,7 +41,7 @@ What followed was a real-world education in distributed systems:
 
 The application uses a **decoupled, event-driven architecture** to process audio files asynchronously.
 
-![Architecture Diagram](docs/architecture.png)
+![Architecture Diagram](https://lucid.app/lucidchart/5b01e82b-cbf1-42ae-a722-8bcdffeeb5cb/edit?viewport_loc=-718%2C-178%2C2860%2C1175%2C0_0&invitationId=inv_9a3b2110-38a5-4215-806b-d29cf94e9360)
 
 ### The Workflow
 
@@ -170,14 +170,14 @@ This isn't just an audio converter—it's a **case study in solving real enginee
 - When to use managed services vs. custom solutions
 - How to debug issues across multiple AWS services
 
-**Read the full story:** [LinkedIn Post](#) | [Blog Article](#)
+**Read the full story:** [LinkedIn Post](https://www.linkedin.com/posts/xadi_aws-cloudcomputing-serverless-activity-7388656205344391168-vEMi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEYGzLYBBfd1jEVjlsJ8g02hw5MxiYzVAZE)
 
 ---
 
 ## 📧 Connect With Me
 
 **[Your Name]**  
-[LinkedIn](#) | [Portfolio](#) | [Email](mailto:your.email@example.com)
+[LinkedIn](https://www.linkedin.com/posts/xadi). | [Email](mailto:adityawaghmarex@gmail.com)
 
 Questions about the architecture? Want to discuss AWS best practices? Feel free to reach out!
 
@@ -190,3 +190,4 @@ If this project helped you understand event-driven architectures or gave you ide
 ---
 
 **Built with ☕, countless CloudWatch logs, and way too much IAM debugging**
+
