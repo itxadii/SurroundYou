@@ -176,8 +176,8 @@ This isn't just an audio converter—it's a **case study in solving real enginee
 
 ## 📧 Connect With Me
 
-**[Your Name]**  
-[LinkedIn](https://www.linkedin.com/posts/xadi). | [Email](mailto:adityawaghmarex@gmail.com)
+**[Aditya Waghmare]**  
+[LinkedIn](https://www.linkedin.com/posts/xadi) | [Email](mailto:adityawaghmarex@gmail.com)
 
 Questions about the architecture? Want to discuss AWS best practices? Feel free to reach out!
 
@@ -190,5 +190,6 @@ If this project helped you understand event-driven architectures or gave you ide
 ---
 
 **Built with ☕, countless CloudWatch logs, and way too much IAM debugging**
+
 
 
