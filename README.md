@@ -183,13 +183,14 @@ Questions about the architecture? Want to discuss AWS best practices? Feel free 
 
 ---
 
-## ⭐ Show Your Support
+## ⭐ Show Your Support!
 
 If this project helped you understand event-driven architectures or gave you ideas for your own cloud projects, consider giving it a star! ⭐
 
 ---
 
 **Built with ☕, countless CloudWatch logs, and way too much IAM debugging**
+
 
 
 
