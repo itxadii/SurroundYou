@@ -1,32 +1,32 @@
 {
-  "dev": {
+  "prod": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-surroundyou-dev-b2110-authRole",
-      "UnauthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-dev-b2110-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-dev-b2110-authRole",
+      "AuthRoleName": "amplify-surroundyou-prod-c0cc9-authRole",
+      "UnauthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-prod-c0cc9-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-prod-c0cc9-authRole",
       "Region": "ap-south-1",
-      "DeploymentBucketName": "amplify-surroundyou-dev-b2110-deployment",
-      "UnauthRoleName": "amplify-surroundyou-dev-b2110-unauthRole",
-      "StackName": "amplify-surroundyou-dev-b2110",
-      "StackId": "arn:aws:cloudformation:ap-south-1:256364432182:stack/amplify-surroundyou-dev-b2110/293bd1c0-a9e0-11f0-bcc3-0a0fe2bb3b25",
-      "AmplifyAppId": "d2837apkr8g2eq",
-      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-surroundyou-dev-b2110-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+      "DeploymentBucketName": "amplify-surroundyou-prod-c0cc9-deployment",
+      "UnauthRoleName": "amplify-surroundyou-prod-c0cc9-unauthRole",
+      "StackName": "amplify-surroundyou-prod-c0cc9",
+      "StackId": "arn:aws:cloudformation:ap-south-1:256364432182:stack/amplify-surroundyou-prod-c0cc9/8a07cd80-b500-11f0-b62b-02e78c067089",
+      "AmplifyAppId": "d3pqqc4w1tm533",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-surroundyou-prod-c0cc9-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
-      "storage": {
-        "SurroundYouStorage": {}
+      "auth": {
+        "surroundyouf60f3e44": {}
       },
       "function": {
-        "LambdaAPI": {
-          "deploymentBucketName": "amplify-surroundyou-dev-b2110-deployment",
-          "s3Key": "amplify-builds/LambdaAPI-4e482b464e65682f6e4a-build.zip"
+        "surroundyoufunctionprod": {
+          "deploymentBucketName": "amplify-surroundyou-prod-c0cc9-deployment",
+          "s3Key": "amplify-builds/surroundyoufunctionprod-64326d6a414447364c6d-build.zip"
         }
       },
-      "auth": {
-        "surroundyou": {}
+      "storage": {
+        "s3bucketforsurroundyou1": {}
       },
       "api": {
-        "SurroundYouAPI": {}
+        "apiforsurroundyouprod": {}
       }
     }
   }

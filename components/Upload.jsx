@@ -11,8 +11,8 @@ const Upload = () => {
     const [downloadUrl, setDownloadUrl] = useState('');
     const [error, setError] = useState('');
 
-    const apiName = 'SurroundYouAPI';
-    const path = '/presigned-url';
+    const apiName = 'apiforsurroundyouprod';
+    const path = '/items';
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];

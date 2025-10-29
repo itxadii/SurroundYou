@@ -1,6 +1,6 @@
 {
   "api": {
-    "SurroundYouAPI": {
+    "apiforsurroundyouprod": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,7 +8,7 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "LambdaAPI"
+          "resourceName": "surroundyoufunctionprod"
         }
       ],
       "providerPlugin": "awscloudformation",
@@ -16,7 +16,8 @@
     }
   },
   "auth": {
-    "surroundyou": {
+    "surroundyouf60f3e44": {
+      "customAuth": false,
       "dependsOn": [],
       "frontendAuthConfig": {
         "mfaConfiguration": "OFF",
@@ -31,18 +32,19 @@
           "EMAIL"
         ],
         "socialProviders": [],
-        "usernameAttributes": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
         "verificationMechanisms": [
           "EMAIL"
         ]
       },
       "providerPlugin": "awscloudformation",
-      "service": "Cognito",
-      "serviceType": "managed"
+      "service": "Cognito"
     }
   },
   "function": {
-    "LambdaAPI": {
+    "surroundyoufunctionprod": {
       "build": true,
       "dependsOn": [],
       "providerPlugin": "awscloudformation",
@@ -50,26 +52,36 @@
     }
   },
   "parameters": {
-    "AMPLIFY_function_LambdaAPI_deploymentBucketName": {
+    "AMPLIFY_function_surroundyoufunctionprod_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "LambdaAPI"
+          "resourceName": "surroundyoufunctionprod"
         }
       ]
     },
-    "AMPLIFY_function_LambdaAPI_s3Key": {
+    "AMPLIFY_function_surroundyoufunctionprod_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "LambdaAPI"
+          "resourceName": "surroundyoufunctionprod"
         }
       ]
     }
   },
   "storage": {
-    "SurroundYouStorage": {
-      "dependsOn": [],
+    "s3bucketforsurroundyou1": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ],
+          "category": "function",
+          "resourceName": "surroundyoufunctionprod"
+        }
+      ],
       "providerPlugin": "awscloudformation",
       "service": "S3"
     }

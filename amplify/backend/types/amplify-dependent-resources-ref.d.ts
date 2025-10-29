@@ -1,13 +1,13 @@
 export type AmplifyDependentResourcesAttributes = {
   "api": {
-    "SurroundYouAPI": {
+    "apiforsurroundyouprod": {
       "ApiId": "string",
       "ApiName": "string",
       "RootUrl": "string"
     }
   },
   "auth": {
-    "surroundyou": {
+    "surroundyouf60f3e44": {
       "AppClientID": "string",
       "AppClientIDWeb": "string",
       "IdentityPoolId": "string",
@@ -18,7 +18,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "function": {
-    "LambdaAPI": {
+    "surroundyoufunctionprod": {
       "Arn": "string",
       "LambdaExecutionRole": "string",
       "LambdaExecutionRoleArn": "string",
@@ -27,7 +27,7 @@ export type AmplifyDependentResourcesAttributes = {
     }
   },
   "storage": {
-    "SurroundYouStorage": {
+    "s3bucketforsurroundyou1": {
       "BucketName": "string",
       "Region": "string"
     }

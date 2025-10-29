@@ -11,7 +11,7 @@
     "env": {
       "Type": "String"
     },
-    "SurroundYouAPI": {
+    "apiforsurroundyouprod": {
       "Type": "String"
     }
   },
@@ -52,7 +52,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -64,7 +64,7 @@
                           }
                         ]
                       },
-                      "/POST/presigned-url/*"
+                      "/POST/items/*"
                     ]
                   ]
                 },
@@ -82,7 +82,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -94,7 +94,7 @@
                           }
                         ]
                       },
-                      "/POST/presigned-url"
+                      "/POST/items"
                     ]
                   ]
                 },
@@ -112,7 +112,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -124,7 +124,7 @@
                           }
                         ]
                       },
-                      "/GET/presigned-url/*"
+                      "/GET/items/*"
                     ]
                   ]
                 },
@@ -142,7 +142,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -154,7 +154,7 @@
                           }
                         ]
                       },
-                      "/GET/presigned-url"
+                      "/GET/items"
                     ]
                   ]
                 },
@@ -172,7 +172,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -184,7 +184,7 @@
                           }
                         ]
                       },
-                      "/PUT/presigned-url/*"
+                      "/PUT/items/*"
                     ]
                   ]
                 },
@@ -202,7 +202,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -214,7 +214,7 @@
                           }
                         ]
                       },
-                      "/PUT/presigned-url"
+                      "/PUT/items"
                     ]
                   ]
                 },
@@ -232,7 +232,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -244,7 +244,7 @@
                           }
                         ]
                       },
-                      "/PATCH/presigned-url/*"
+                      "/PATCH/items/*"
                     ]
                   ]
                 },
@@ -262,7 +262,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -274,7 +274,7 @@
                           }
                         ]
                       },
-                      "/PATCH/presigned-url"
+                      "/PATCH/items"
                     ]
                   ]
                 }
@@ -315,7 +315,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -327,7 +327,7 @@
                           }
                         ]
                       },
-                      "/POST/presigned-url/*"
+                      "/POST/items/*"
                     ]
                   ]
                 },
@@ -345,7 +345,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -357,7 +357,7 @@
                           }
                         ]
                       },
-                      "/POST/presigned-url"
+                      "/POST/items"
                     ]
                   ]
                 },
@@ -375,7 +375,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -387,7 +387,7 @@
                           }
                         ]
                       },
-                      "/GET/presigned-url/*"
+                      "/GET/items/*"
                     ]
                   ]
                 },
@@ -405,7 +405,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -417,7 +417,7 @@
                           }
                         ]
                       },
-                      "/GET/presigned-url"
+                      "/GET/items"
                     ]
                   ]
                 },
@@ -435,7 +435,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -447,7 +447,7 @@
                           }
                         ]
                       },
-                      "/PUT/presigned-url/*"
+                      "/PUT/items/*"
                     ]
                   ]
                 },
@@ -465,7 +465,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -477,7 +477,7 @@
                           }
                         ]
                       },
-                      "/PUT/presigned-url"
+                      "/PUT/items"
                     ]
                   ]
                 },
@@ -495,7 +495,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -507,7 +507,7 @@
                           }
                         ]
                       },
-                      "/PATCH/presigned-url/*"
+                      "/PATCH/items/*"
                     ]
                   ]
                 },
@@ -525,7 +525,7 @@
                       },
                       ":",
                       {
-                        "Ref": "SurroundYouAPI"
+                        "Ref": "apiforsurroundyouprod"
                       },
                       "/",
                       {
@@ -537,7 +537,7 @@
                           }
                         ]
                       },
-                      "/PATCH/presigned-url"
+                      "/PATCH/items"
                     ]
                   ]
                 }
