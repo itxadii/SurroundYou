@@ -127,10 +127,10 @@ const Upload = () => {
                     <svg className="w-12 h-12 text-blue-500 mb-3" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M7 16a4 4 0 01-.88-7.9A5 5 0 0115.9 6h1.1a5 5 0 01.9 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
                     </svg>
-                    <p className="text-gray-400 font-medium">Click to upload or drag & drop</p>
+                    <p className="text-gray-400 font-medium">Click to upload</p>
                     <p className="text-sm text-gray-500">mp3 (max 5MB)</p>
                     
-                    {selectedFile && <p className="mt-3 text-gray-300 italic text-center">{selectedFile.name}</p>}
+                    {selectedFile && <p className="mt-3 text-gray-300  text-center">{selectedFile.name}</p>}
                     {uploadProgress > 0 && uploadProgress < 100 && (
                          <div className="w-full bg-gray-700 rounded-full h-2.5 mt-4">
                             <div className="bg-blue-500 h-2.5 rounded-full" style={{ width: `${uploadProgress}%` }}></div>
@@ -141,7 +141,7 @@ const Upload = () => {
                     {downloadUrl && (
                         <a href={downloadUrl} download className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-lg hover:bg-blue-100">
                            <span className="bg-white bg-clip-text text-transparent font-serif">
-                           Download 8D Audio :)
+                           Download
                            </span>
                         </a>
                     )}
