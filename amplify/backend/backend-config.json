@@ -51,6 +51,24 @@
       "service": "Lambda"
     }
   },
+  "parameters": {
+    "AMPLIFY_function_surroundyoufunctionprod_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "surroundyoufunctionprod"
+        }
+      ]
+    },
+    "AMPLIFY_function_surroundyoufunctionprod_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "surroundyoufunctionprod"
+        }
+      ]
+    }
+  },
   "storage": {
     "s3bucketforsurroundyou1": {
       "dependsOn": [

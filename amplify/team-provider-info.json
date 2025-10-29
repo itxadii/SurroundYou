@@ -19,7 +19,7 @@
       "function": {
         "surroundyoufunctionprod": {
           "deploymentBucketName": "amplify-surroundyou-prod-c0cc9-deployment",
-          "s3Key": "amplify-builds/surroundyoufunctionprod-64326d6a414447364c6d-build.zip"
+          "s3Key": "amplify-builds/surroundyoufunctionprod-705236346a4f4d7a4856-build.zip"
         }
       },
       "storage": {
