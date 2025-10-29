@@ -145,15 +145,14 @@ const Upload = () => {
                            </span>
                         </a>
                     )}
-                </div>
-                <input id="fileInput" type="file" accept=".mp3" className="hidden" onChange={handleFileChange} />
-            </label>
-            
-            {selectedFile && !processingStatus && (
+                    {selectedFile && !processingStatus && (
                  <button onClick={handleProcessClick} className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:scale-105 transition-transform">
                     Convert to 8D
                 </button>
             )}
+                </div>
+                <input id="fileInput" type="file" accept=".mp3" className="hidden" onChange={handleFileChange} />
+            </label>
         </div>
     );
 };
