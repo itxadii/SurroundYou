@@ -1,0 +1,16 @@
+{
+  "resourceName": "s3bucketforsurroundyou1",
+  "policyUUID": "61f0fc6b",
+  "bucketName": "surroundyoubucket",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ"
+  ],
+  "groupAccess": {},
+  "triggerFunction": "surroundyoufunctionprod"
+}

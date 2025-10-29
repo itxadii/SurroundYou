@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "paths": {
+    "/items": {
+      "name": "/items",
+      "lambdaFunction": "surroundyoufunctionprod",
+      "permissions": {
+        "setting": "protected",
+        "auth": [
+          "create",
+          "read",
+          "update"
+        ],
+        "guest": [
+          "create",
+          "read",
+          "update"
+        ]
+      }
+    }
+  }
+}

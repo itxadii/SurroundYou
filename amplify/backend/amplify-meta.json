@@ -1,0 +1,142 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-surroundyou-prod-c0cc9-authRole",
+      "UnauthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-prod-c0cc9-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::256364432182:role/amplify-surroundyou-prod-c0cc9-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-surroundyou-prod-c0cc9-deployment",
+      "UnauthRoleName": "amplify-surroundyou-prod-c0cc9-unauthRole",
+      "StackName": "amplify-surroundyou-prod-c0cc9",
+      "StackId": "arn:aws:cloudformation:ap-south-1:256364432182:stack/amplify-surroundyou-prod-c0cc9/8a07cd80-b500-11f0-b62b-02e78c067089",
+      "AmplifyAppId": "d3pqqc4w1tm533",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-surroundyou-prod-c0cc9-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
+    }
+  },
+  "auth": {
+    "surroundyouf60f3e44": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false,
+      "frontendAuthConfig": {
+        "socialProviders": [],
+        "usernameAttributes": [
+          "EMAIL"
+        ],
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyMinLength": 8,
+          "passwordPolicyCharacters": []
+        },
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-surroundyou-prod-c0cc9-deployment/amplify-cfn-templates/auth/surroundyouf60f3e44-cloudformation-template.json",
+        "logicalId": "authsurroundyouf60f3e44"
+      },
+      "lastPushTimeStamp": "2025-10-29T22:14:16.473Z",
+      "output": {
+        "UserPoolId": "ap-south-1_rqlxwENVf",
+        "AppClientIDWeb": "7ja96b5pegfkfdf29s8i3evrjm",
+        "AppClientID": "6r69rncpnbo2lqkmb19lu92n5m",
+        "IdentityPoolId": "ap-south-1:556231c8-5af9-401e-9c1f-2133a7298371",
+        "UserPoolArn": "arn:aws:cognito-idp:ap-south-1:256364432182:userpool/ap-south-1_rqlxwENVf",
+        "IdentityPoolName": "surroundyouf60f3e44_identitypool_f60f3e44__prod",
+        "UserPoolName": "surroundyouf60f3e44_userpool_f60f3e44"
+      },
+      "lastPushDirHash": "0i53kYPK6BoF30lFYCqN68fxmKg="
+    }
+  },
+  "function": {
+    "surroundyoufunctionprod": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "dependsOn": [],
+      "lastBuildTimeStamp": "2025-10-29T20:24:52.487Z",
+      "lastBuildType": "PROD",
+      "lastPackageTimeStamp": "2025-10-29T20:25:01.143Z",
+      "distZipFilename": "surroundyoufunctionprod-64326d6a414447364c6d-build.zip",
+      "s3Bucket": {
+        "deploymentBucketName": "amplify-surroundyou-prod-c0cc9-deployment",
+        "s3Key": "amplify-builds/surroundyoufunctionprod-64326d6a414447364c6d-build.zip"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-surroundyou-prod-c0cc9-deployment/amplify-cfn-templates/function/surroundyoufunctionprod-cloudformation-template.json",
+        "logicalId": "functionsurroundyoufunctionprod"
+      },
+      "lastPushTimeStamp": "2025-10-29T22:14:16.481Z",
+      "output": {
+        "LambdaExecutionRoleArn": "arn:aws:iam::256364432182:role/surroundyouLambdaRolea69d7b66-prod",
+        "Region": "ap-south-1",
+        "Arn": "arn:aws:lambda:ap-south-1:256364432182:function:surroundyoufunctionprod-prod",
+        "Name": "surroundyoufunctionprod-prod",
+        "LambdaExecutionRole": "surroundyouLambdaRolea69d7b66-prod"
+      },
+      "lastPushDirHash": "pR64jOMzHVS/UzIdtyq79fW4gGk="
+    }
+  },
+  "storage": {
+    "s3bucketforsurroundyou1": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "surroundyoufunctionprod",
+          "attributes": [
+            "Name",
+            "Arn",
+            "LambdaExecutionRole"
+          ]
+        }
+      ],
+      "lastPushTimeStamp": "2025-10-29T22:14:17.927Z",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-surroundyou-prod-c0cc9-deployment/amplify-cfn-templates/storage/cloudformation-template.json",
+        "logicalId": "storages3bucketforsurroundyou1"
+      },
+      "output": {
+        "BucketName": "surroundyoubucketc0cc9-prod",
+        "Region": "ap-south-1"
+      },
+      "lastPushDirHash": "TDRgEuGLJwIOZqVvjUHhBYF8ITo="
+    }
+  },
+  "api": {
+    "apiforsurroundyouprod": {
+      "service": "API Gateway",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "surroundyoufunctionprod",
+          "attributes": [
+            "Name",
+            "Arn"
+          ]
+        }
+      ],
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-surroundyou-prod-c0cc9-deployment/amplify-cfn-templates/api/apiforsurroundyouprod-cloudformation-template.json",
+        "logicalId": "apiapiforsurroundyouprod"
+      },
+      "lastPushTimeStamp": "2025-10-29T22:14:16.636Z",
+      "output": {
+        "ApiName": "apiforsurroundyouprod",
+        "RootUrl": "https://5bhg8wy1gd.execute-api.ap-south-1.amazonaws.com/prod",
+        "ApiId": "5bhg8wy1gd"
+      },
+      "lastPushDirHash": "hgEsYv0P5t7it7HTrGjp45Dvd3E="
+    }
+  }
+}
