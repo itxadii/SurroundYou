@@ -3,13 +3,21 @@ import Navbar from '../components/Navbar'
 import Upload from '../components/Upload'
 import Card from '../components/Card'
 import Footer from '../components/Footer'
+import headphonesImg from './assets/headphones.JPG'
 
 const App = () => {
   return (
     <div>
+      <div
+       className='fixed inset-0 z-[-1] opacity-15 bg-center bg-cover bg-no-repeat' // Changed z-0 to z-[-1]
+        style={{
+        backgroundImage: `url(${headphonesImg})`,
+        filter: 'blur(2px)'
+      }}
+      ></div>
       <Navbar />
       <Upload />
-      <div className='flex flex-col md:flex-row justify-center items-center'>
+      <div className='flex flex-col md:flex-row justify-center items-center mt-20'>
         <Card 
           title="Free Spatial Audio Converter"
           description="Transform your favorite songs into immersive 8D audio with our free converter tool. Simply upload any audio file and experience it in stunning spatial dimensions. Download and enjoy your converted tracks anywhere, no technical expertise required."

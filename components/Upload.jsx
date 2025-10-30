@@ -138,21 +138,23 @@ const Upload = () => {
                     )}
                     {processingStatus && <p className="mt-3 text-blue-300 font-mono text-3v12 italic text-center">{processingStatus}</p>}
                     {error && <p className="mt-3 text-red-500 font-mono text-sm italic">{error}</p>}
-                    {downloadUrl && (
-                        <a href={downloadUrl} download className="mt-4 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-lg hover:bg-blue-100">
+                </div>
+                <input id="fileInput" type="file" accept=".mp3" className="hidden" onChange={handleFileChange} />
+            </label>
+            {downloadUrl && (
+                <div className='mt-6'>
+                        <a href={downloadUrl} download className="mt-6 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-lg hover:bg-blue-100">
                            <span className="bg-white bg-clip-text text-transparent font-serif">
                            Download
                            </span>
                         </a>
+                </div>
                     )}
-                    {selectedFile && !processingStatus && (
+            {selectedFile && !processingStatus && (
                  <button onClick={handleProcessClick} className="mt-6 px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold rounded-lg shadow-md hover:scale-105 transition-transform">
                     Convert to 8D
                 </button>
             )}
-                </div>
-                <input id="fileInput" type="file" accept=".mp3" className="hidden" onChange={handleFileChange} />
-            </label>
         </div>
     );
 };
