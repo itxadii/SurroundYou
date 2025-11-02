@@ -5,8 +5,8 @@ import backgroundImage from '../src/assets/1500x500.jpeg'
 const Navbar = () => {
     return (
         <>
-        <div className='h-30 w-full font-bold flex justify-between items-center p-4' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
-            <img src={logo} alt="logo" className='w-60 h-23 rounded-l-full' />
+        <div className='h-20 w-full font-bold flex justify-between items-center p-4' style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
+            <img src={logo} alt="logo" className='w-35 h-20 rounded' />
             <a
             href="https://www.buymeacoffee.com/ifeelhonney"
             target="_blank"

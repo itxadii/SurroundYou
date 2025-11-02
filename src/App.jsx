@@ -9,10 +9,10 @@ const App = () => {
   return (
     <div>
       <div
-       className='fixed inset-0 z-[-1] opacity-15 bg-center bg-cover bg-no-repeat' // Changed z-0 to z-[-1]
+       className='fixed inset-0 z-[-1] opacity-35 bg-center bg-cover bg-no-repeat' // Changed z-0 to z-[-1]
         style={{
         backgroundImage: `url(${headphonesImg})`,
-        filter: 'blur(2px)'
+        filter: 'blur(5px)'
       }}
       ></div>
       <Navbar />
