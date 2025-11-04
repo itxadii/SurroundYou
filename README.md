@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-Vite-61DAFB)](https://reactjs.org/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB)](https://www.python.org/)
 
-**[🚀 Live Demo](https://main.d2837apkr8g2eq.amplifyapp.com/)** | **[📝 Read the Build Story](https://www.linkedin.com/posts/xadi_aws-cloudcomputing-serverless-activity-7388656205344391168-vEMi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEYGzLYBBfd1jEVjlsJ8g02hw5MxiYzVAZE)**
+**[🚀 Live Demo](https://main.d3pqqc4w1tm533.amplifyapp.com/)** | **[📝 Read the Build Story](https://www.linkedin.com/posts/xadi_aws-cloudcomputing-serverless-activity-7388656205344391168-vEMi?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEYGzLYBBfd1jEVjlsJ8g02hw5MxiYzVAZE)**
 
 ---
 
@@ -190,6 +190,7 @@ If this project helped you understand event-driven architectures or gave you ide
 ---
 
 **Built with ☕, countless CloudWatch logs, and way too much IAM debugging**
+
 
 
 
