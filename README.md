@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python)](https://www.python.org/)
 
-**[Chick Here For Live Demo!](https://main.d3pqqc4w1tm533.amplifyapp.com/)**
+**[Click Here For Live Demo!](https://main.d3pqqc4w1tm533.amplifyapp.com/)**
 
 ---
 
@@ -389,6 +389,7 @@ If this project helped you understand event-driven architectures, AWS services, 
 *"The best architecture is the one that solves real problems, not the one that uses the most services."*
 
 </div>
+
 
 
 
