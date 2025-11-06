@@ -321,7 +321,7 @@ This was the most complex phase, involving debugging the "invisible" connections
 
 #### Challenge: The Final CORS Boss
 * **Problem:** My file upload was blocked by a CORS policy, even though I had `AllowedOrigins: ["*"]`.
-* **Solution:** I diagnosed that the S3 wildcard `*` does not work for credentialed pre-signed URL requests. The fix was to be explicit, changing the S3 CORS policy to allow my specific origins: `http://localhost:5173` and my production URL.
+* **Solution:** I diagnosed that the S3 wildcard `*` does not work for credentialed pre-signed URL requests. The fix was to be explicit, changing the S3 CORS policy to allow my specific origins
 
 #### Challenge: The `NoSuchKey` Download Error
 * **Problem:** The app showed a download link, but clicking it gave an XML `NoSuchKey` error.
@@ -389,6 +389,7 @@ If this project helped you understand event-driven architectures, AWS services, 
 *"The best architecture is the one that solves real problems, not the one that uses the most services."*
 
 </div>
+
 
 
 
