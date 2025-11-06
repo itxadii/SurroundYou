@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python)](https://www.python.org/)
 
-**[🚀 Live Demo](https://main.d3pqqc4w1tm533.amplifyapp.com/)** | **[📝 My LinkedIn Post (The Full Story)](https://www.linkedin.com/posts/xadi_aws-cloudcomputing-serverless-activity-7388656205344391168-vEMi)**
+**[🚀 Live Demo](https://main.d3pqqc4w1tm533.amplifyapp.com/)**
 
 ---
 
@@ -17,10 +17,10 @@
 - [Visual Walkthrough](#-visual-walkthrough)
 - [Architecture & System Design](#-architecture--system-design)
 - [Technology Stack](#-technology-stack)
-- [Technical Challenges](#-technical-challenges--solutions)
+- [Technical Challenges & Solutions](#-technical-challenges--solutions)
 - [Performance & Cost Metrics](#-performance--cost-metrics)
 - [Key Learnings](#-key-learnings)
-- [Contact](#-connect-with-me)
+- [Connect With Me](#-connect-with-me)
 
 ---
 
@@ -53,13 +53,11 @@ Here is the simple, 3-step user flow for the application.
     <td align="center"><strong>3. Download Result</strong><br/>The Fargate task completes, and the UI displays the final download link.</td>
   </tr>
   <tr>
-    <td><img src="https://placehold.co/600x400/2d3748/e2e8f0?text=Your+Upload+UI+Screenshot" alt="Upload UI"></td>
-    <td><img src="https://placehold.co/600x400/2d3748/e2e8f0?text=Processing+Screenshot" alt="Processing UI"></td>
-    <td><img src="https://placehold.co/600x400/2d3748/e2e8f0?text=Download+Link+Screenshot" alt="Download UI"></td>
+    <td><img src="src/assets/uploadfile.png" alt="Upload UI" width="300"></td>
+    <td><img src="src/assets/processfile.png" alt="Processing UI" width="300"></td>
+    <td><img src="src/assets/downloadfile.png" alt="Download UI" width="300"></td>
   </tr>
 </table>
-
-**ACTION:** Replace the `https://placehold.co` links above with screenshots from your own project.
 
 ---
 
@@ -87,7 +85,7 @@ graph TD
         F -- "6. 'Object Created' Event" --> G[Amazon EventBridge]
         G -- "7. Invokes Task" --> H[Amazon ECS on AWS Fargate]
         I[Amazon ECR] -- "8. Pulls Container Image" --> H
-        H -- "9. Processes Audio" --> F
+        H -- "9. Processes Audio & Uploads" --> F
     end
 
     subgraph "Polling & Download Flow"
@@ -342,3 +340,4 @@ Cloud & DevOps Engineer | Building Production-Ready Cloud Systems
 
 ```
 ```
+
