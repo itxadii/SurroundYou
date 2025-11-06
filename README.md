@@ -1,4 +1,4 @@
-# 🎧 SurroundYou - Cloud-Native 8D Audio Processing Platform
+# 🎼 SurroundYou - Cloud-Native 8D Audio Processing Platform
 
 > Enterprise-grade serverless audio processing pipeline leveraging AWS-managed services for scalable, event-driven 8D audio transformation.
 
@@ -13,18 +13,18 @@
 
 ## 📋 Table of Contents
 
-- [Overview](#-overview)
-- [Visual Walkthrough](#-visual-walkthrough)
-- [Architecture & System Design](#-architecture--system-design)
-- [Technology Stack](#-technology-stack)
-- [Technical Challenges & Solutions](#-technical-challenges--solutions)
-- [Performance & Cost Metrics](#-performance--cost-metrics)
-- [Key Learnings](#-key-learnings)
-- [Connect With Me](#-connect-with-me)
+- [Overview](#overview)
+- [Visual Walkthrough](#visual-walkthrough)
+- [Architecture & System Design](#architecture--system-design)
+- [Technology Stack](#technology-stack)
+- [Technical Challenges & Solutions](#technical-challenges--solutions)
+- [Performance & Cost Metrics](#performance--cost-metrics)
+- [Key Learnings](#key-learnings)
+- [Connect With Me](#connect-with-me)
 
 ---
 
-## 🎯 Overview
+## Overview
 
 SurroundYou is a production-ready, cloud-native audio processing platform that transforms stereo audio into immersive 8D spatial audio experiences. This project demonstrates advanced cloud architecture patterns, containerization strategies, and distributed systems design principles.
 
@@ -47,21 +47,21 @@ SurroundYou is a production-ready, cloud-native audio processing platform that t
 Here is the simple, 3-step user flow for the application.
 
 <table>
-  <tr>
-    <td align="center"><strong>1. Upload File</strong><br/>The user selects an MP3 file. The UI shows the file is ready for processing.</td>
-    <td align="center"><strong>2. Processing</strong><br/>The file is uploaded and the backend pipeline is triggered. The UI polls for status.</td>
-    <td align="center"><strong>3. Download Result</strong><br/>The Fargate task completes, and the UI displays the final download link.</td>
-  </tr>
-  <tr>
-    <td><img src="src/assets/uploadfile.png" alt="Upload UI" width="300"></td>
-    <td><img src="src/assets/processfile.png" alt="Processing UI" width="300"></td>
-    <td><img src="src/assets/downloadfile.png" alt="Download UI" width="300"></td>
-  </tr>
+ <tr>
+ <td align="center"><strong>1. Upload File</strong><br/>The user selects an MP3 file. The UI shows the file is ready for processing.</td>
+ <td align="center"><strong>2. Processing</strong><br/>The file is uploaded and the backend pipeline is triggered. The UI polls for status.</td>
+ <td align="center"><strong>3. Download Result</strong><br/>The Fargate task completes, and the UI displays the final download link.</td>
+ </tr>
+ <tr>
+ <td><img src="src/assets/uploadfile.png" alt="Upload UI" width="300"></td>
+ <td><img src="src/assets/processfile.png" alt="Processing UI" width="300"></td>
+ <td><img src="src/assets/downloadfile.png" alt="Download UI" width="300"></td>
+ </tr>
 </table>
 
 ---
 
-## 🏗️ Architecture & System Design
+## Architecture & System Design
 
 ### High-Level Architecture
 
@@ -103,7 +103,7 @@ graph TD
     style B fill:#61DAFB,color:#000
 ````
 
-### Component Breakdown
+### 📌 Component Breakdown
 
 #### 1\. **Frontend Layer** (React + Amplify)
 
@@ -151,7 +151,7 @@ graph TD
 
 -----
 
-## 🛠️ Technology Stack
+## Technology Stack
 
 ### Frontend
 
@@ -251,11 +251,9 @@ frontend:
       - $HOME/.pyenv/**/*
 ```
 
-\</details\>
-
 -----
 
-## 🔥 Technical Challenges & Solutions
+## Technical Challenges & Solutions
 
 ### Challenge \#1: Lambda Deployment Size Constraints
 
@@ -315,7 +313,7 @@ backend:
 
 -----
 
-## 📊 Performance & Cost Metrics
+## Performance & Cost Metrics
 
 | Metric | Value |
 |--------|-------|
@@ -327,7 +325,7 @@ backend:
 
 -----
 
-## 🎓 Key Learnings
+## Key Learnings
 
   - **Choose the Right Tool:** Lambda is for fast, lightweight tasks; Fargate is for heavy, long-running processes. Knowing the difference is key.
   - **Debug Asynchronously:** You can't debug a distributed system by looking at one log. The `FailedInvocations` metric on EventBridge and a DLQ are your most important tools.
@@ -337,7 +335,7 @@ backend:
 
 -----
 
-## 📧 Connect With Me
+## Connect With Me
 
 **Aditya Waghmare**  
 Cloud & DevOps Engineer | Building Production-Ready Cloud Systems
@@ -352,6 +350,7 @@ Cloud & DevOps Engineer | Building Production-Ready Cloud Systems
 **Built with ☕, lots of CloudWatch logs, and a passion for scalable systems.**
 
 *"I'm a crazy music listener and I wasn't satisfied with the 8D tools out there, so I built my own."*
+
 
 
 
