@@ -384,11 +384,12 @@ If this project helped you understand event-driven architectures, AWS services, 
 
 <div align="center">
 
-**Built with ☕, AWS CloudWatch logs, IAM debugging, and a passion for scalable systems**
+**Built with 💗, AWS CloudWatch logs, IAM debugging, and a passion for scalable systems**
 
-*"The best architecture is the one that solves real problems, not the one that uses the most services."*
+*"I'm a crazy music listener and I wasn't satisfied with the 8D tools out there, so I built my own."*
 
 </div>
+
 
 
 
