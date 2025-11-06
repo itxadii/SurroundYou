@@ -383,7 +383,7 @@ This project demonstrates:
 ## 📧 Connect With Me
 
 **Aditya Waghmare**  
-Cloud Solutions Architect | AWS Enthusiast | Backend Engineer
+Cloud & DevOps Engineer | Building Production Systems
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/xadi)
 [![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail)](mailto:adityawaghmarex@gmail.com)
@@ -406,6 +406,7 @@ If this project helped you understand event-driven architectures, AWS services, 
 
 **Built with ☕, AWS CloudWatch logs, IAM debugging, and a passion for scalable systems**
 
-*"The best architecture is the one that solves real problems, not the one that uses the most services."*
+*"I am crazyy music listner and I am not satisfied with the current 8D converter tools out there! so I build one"*
 
 </div>
+
