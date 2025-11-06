@@ -45,87 +45,60 @@ SurroundYou is a production-ready, cloud-native audio processing platform that t
 
 ### High-Level Architecture
 
-<div align="center">
-
-![AWS Architecture](https://d1.awsstatic.com/product-marketing/Serverless/serverless-application-model.27ff83e8cdcbaa0ed301b26c6c0e3d0ce80b0f17.png)
-
-*Event-driven serverless architecture leveraging AWS managed services*
-
-</div>
-
 The platform implements a **loosely-coupled, event-driven microservices architecture** optimized for scalability and cost efficiency.
 
 **[View Interactive Architecture Diagram →](https://lucid.app/lucidchart/5b01e82b-cbf1-42ae-a722-8bcdffeeb5cb/edit?viewport_loc=-718%2C-178%2C2860%2C1175%2C0_0&invitationId=inv_9a3b2110-38a5-4215-806b-d29cf94e9360)**
 
 ### Request Flow
 
-```mermaid
-graph LR
-    A[User] -->|Upload| B[API Gateway]
-    B -->|Pre-signed URL| C[Lambda]
-    C -->|Generate URL| D[S3 Bucket]
-    D -->|Event| E[EventBridge]
-    E -->|Trigger| F[Fargate Task]
-    F -->|Process| G[Docker Container]
-    G -->|Save| H[S3 Processed]
-    H -->|Poll| A
+```
+┌─────────┐    ┌──────────────┐    ┌────────┐    ┌─────────────┐
+│  User   │───▶│ API Gateway  │───▶│ Lambda │───▶│   S3 Upload │
+│ Browser │    │   (REST)     │    │(Presign)│    │   Bucket    │
+└─────────┘    └──────────────┘    └────────┘    └──────┬──────┘
+                                                          │
+                                                          ▼
+┌─────────┐    ┌──────────────┐    ┌────────────┐    ┌─────────────┐
+│Download │◀───│   Lambda     │◀───│  Fargate   │◀───│ EventBridge │
+│  File   │    │  (Download)  │    │   Task     │    │   (Event)   │
+└─────────┘    └──────────────┘    └─────┬──────┘    └─────────────┘
+                                          │
+                                          ▼
+                                   ┌─────────────┐
+                                   │ S3 Processed│
+                                   │   Bucket    │
+                                   └─────────────┘
 ```
 
-<div align="center">
-
-![S3](https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png)
-
-</div>
+**AWS Services Used:**
+- 🚀 AWS Lambda (API handlers)
+- 📦 Amazon S3 (Storage)
+- 🔄 Amazon EventBridge (Event routing)
+- 🐳 AWS Fargate (Container compute)
+- 🔐 Amazon ECR (Container registry)
+- 📊 Amazon CloudWatch (Monitoring)
 
 ### Component Breakdown
 
 #### 1. **Frontend Layer** (React + Amplify)
-
-<div align="center">
-
-![AWS Amplify](https://d1.awsstatic.com/product-marketing/Amplify/amplify-console-og-image.8f8fb96d82c6a2f5d1e9f36bd224ae1b8cfa906e.png)
-
-</div>
-
 - Single-page application with responsive UI
 - Direct S3 uploads via pre-signed URLs (bypasses server limits)
 - Polling mechanism for async processing status
 - Client-side error handling and retry logic
 
 #### 2. **API Gateway Layer** (Lambda Functions)
-
-<div align="center">
-
-![Lambda](https://d1.awsstatic.com/product-marketing/Lambda/Diagram_Lambda-HowItWorks.53b9fc8f0efbaeadb4a3bcc97ef26a5c6aa21334.png)
-
-</div>
-
 - **Upload Endpoint:** Generates time-limited S3 pre-signed URLs
 - **Download Endpoint:** Provides secure access to processed files
 - **Validation:** Input sanitization and file type verification
 - Fully managed, auto-scaling API infrastructure
 
 #### 3. **Event Processing Layer** (EventBridge)
-
-<div align="center">
-
-![EventBridge](https://d1.awsstatic.com/product-marketing/EventBridge/Product-Page-Diagram_Amazon-EventBridge_How-it-Works.cd3c071fe3f8df90670c0f885f1d07f6c2f6dcda.png)
-
-</div>
-
 - Captures S3 `ObjectCreated` events in real-time
 - Routes events to appropriate compute targets
 - Dead-letter queue (DLQ) for failed event capture and debugging
 - Enables future extensibility (SNS notifications, analytics, etc.)
 
 #### 4. **Compute Layer** (AWS Fargate on ECS)
-
-<div align="center">
-
-![Fargate](https://d1.awsstatic.com/product-marketing/Fargate/Fargate_HIW.f62efabf3b866389ca4e133b51debcf70e8c7e23.png)
-
-</div>
-
 - **Serverless containers:** No EC2 instance management required
 - **On-demand execution:** Tasks spin up only when triggered
 - **Resource optimization:** Allocated CPU/memory per task definition
@@ -150,26 +123,12 @@ graph LR
 6. Cleanup temporary files and terminate
 
 #### 6. **Storage Layer** (Amazon S3)
-
-<div align="center">
-
-![S3](https://d1.awsstatic.com/product-marketing/S3/s3-pdp-how-it-works-diagram.4b7f7b9f43d0bb88c1f6b37bb4f3e0a5f53f4b3d.png)
-
-</div>
-
 - **Source bucket:** User uploads with lifecycle policies
 - **Processed bucket:** Output files with presigned download access
 - **Encryption:** Server-side encryption (SSE-S3) at rest
 - **Versioning:** Optional version control for audit trails
 
 #### 7. **Observability** (CloudWatch)
-
-<div align="center">
-
-![CloudWatch](https://d1.awsstatic.com/product-marketing/CloudWatch/Product-Page-Diagram_Amazon-CloudWatch_Embedded-Metric-Format.e3d92781e81c7a0fc61ca35b5c3b6d4f8f8e8e8f.png)
-
-</div>
-
 - Container logs aggregation
 - Task execution metrics
 - Error tracking and alerting
