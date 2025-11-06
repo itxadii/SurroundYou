@@ -362,8 +362,8 @@ This was the most complex phase, involving debugging the "invisible" connections
 
 ## Connect With Me
 
-**Aditya Waghmare**  
-Cloud Solutions Architect | AWS Enthusiast | Backend Engineer
+**Aditya Waghmare** 
+Cloud & DevOps Engineer | Love Building Scalable Systems
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/xadi)
 [![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail)](mailto:adityawaghmarex@gmail.com)
@@ -389,6 +389,7 @@ If this project helped you understand event-driven architectures, AWS services, 
 *"I'm a crazy music listener and I wasn't satisfied with the 8D tools out there, so I built my own."*
 
 </div>
+
 
 
 
