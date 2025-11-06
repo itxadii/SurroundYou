@@ -7,7 +7,7 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python)](https://www.python.org/)
 
-**[🚀 Live Demo](https://main.d3pqqc4w1tm533.amplifyapp.com/)**
+**[Chick Here For Live Demo!](https://main.d3pqqc4w1tm533.amplifyapp.com/)**
 
 ---
 
@@ -42,7 +42,7 @@ SurroundYou is a production-ready, cloud-native audio processing platform that t
 
 ---
 
-## 📸 Visual Walkthrough
+## Visual Walkthrough
 
 Here is the simple, 3-step user flow for the application.
 
@@ -180,8 +180,8 @@ graph TD
 | **AWS Fargate** | Serverless container compute |
 | **Python 3.12** | Core processing logic |
 
-\<details\>
-\<summary\>\<strong\>📦 Python Dependencies (requirements.txt)\</strong\>\</summary\>
+
+### 📦 Python Dependencies (requirements.txt)
 
 ```
 boto3
@@ -190,7 +190,6 @@ pydub
 pedalboard
 ```
 
-\</details\>
 
 ### Infrastructure & Security
 
@@ -201,22 +200,39 @@ pedalboard
 | **AWS IAM** | Fine-grained access control (Task Roles, Execution Roles, etc.) |
 | **Amazon CloudWatch** | Logging, metrics, and alarms |
 
-\<details\>
-\<summary\>\<strong\>⚙️ View Amplify Build Configuration (amplify.yml)\</strong\>\</summary\>
+### ⚙️ View Amplify Build Configuration (amplify.yml)
 
 This configuration was the solution to a complex build failure, forcing the Amplify build environment to use a specific Python 3.12 version.
 
 ```yaml
 version: 1
 backend:
-  runtime-versions:
-    nodejs: 18
-    python: 3.12
   phases:
+    preBuild:
+      commands:
+        - export LANG=C.UTF-8
+        - export LC_ALL=C.UTF-8
+        # Use existing pyenv installation
+        - export PATH="$HOME/.pyenv/bin:$PATH"
+        - eval "$(pyenv init --path)"
+        - eval "$(pyenv init -)"
+        # Install Python 3.12.0
+        - pyenv install -s 3.12.0
+        - pyenv global 3.12.0
+        - python --version
+        - pip install --upgrade pip
+        - pip install pipenv
+        - export PIPENV_PYTHON=$(pyenv which python)
     build:
       commands:
-        - '# Execute Amplify CLI with the helper script'
+        - export LANG=C.UTF-8
+        - export LC_ALL=C.UTF-8
+        - export PATH="$HOME/.pyenv/bin:$PATH"
+        - eval "$(pyenv init --path)"
+        - eval "$(pyenv init -)"
+        - export PIPENV_PYTHON=$(pyenv which python)
         - amplifyPush --simple
+
 frontend:
   phases:
     preBuild:
@@ -232,6 +248,7 @@ frontend:
   cache:
     paths:
       - node_modules/**/*
+      - $HOME/.pyenv/**/*
 ```
 
 \</details\>
@@ -330,14 +347,12 @@ Cloud & DevOps Engineer | Building Production-Ready Cloud Systems
 
 -----
 
-\<div align="center"\>
+<div align="center"\>
 
 **Built with ☕, lots of CloudWatch logs, and a passion for scalable systems.**
 
 *"I'm a crazy music listener and I wasn't satisfied with the 8D tools out there, so I built my own."*
 
-\</div\>
 
-```
-```
+
 
