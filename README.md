@@ -255,63 +255,88 @@ frontend:
 
 ## Technical Challenges & Solutions
 
-### Challenge \#1: Lambda Deployment Size Constraints
+This project was a case study in real-world cloud engineering. The initial "simple" plan failed, leading to a complete re-architecture and a deep dive into debugging a distributed system.
 
-**Problem:** Initial Lambda-based design exceeded 250MB uncompressed limit due to scientific libraries (`numpy`, `pydub`, `pedalboard`, and `ffmpeg`).
+---
+### Phase 1: The Initial Architecture (The Lambda Failure)
 
-**Solution:** Pivoted the entire architecture. I kept Lambda as a lightweight "gatekeeper" for handling API requests and migrated the heavy processing logic to a **Docker container run on AWS Fargate**, which has a 10GB image limit.
+#### Challenge: The 250MB Lambda Deployment Limit
+* **Problem:** The initial plan to use AWS Lambda for audio processing failed instantly. The required Python libraries (`numpy`, `pedalboard`, `ffmpeg`) were far too large for Lambda's 250MB uncompressed size limit.
+* **Solution:** I re-architected the entire project. The heavy processing was migrated to a **Docker container** running on **AWS Fargate**. Lambda was kept as a lightweight "gatekeeper" to run the secure API.
 
-**Impact:** Enabled use of full-featured audio processing libraries without compromises and created a more robust, scalable solution.
+---
+### Phase 2: The Container (Local Debugging)
 
------
+#### Challenge: Cross-Platform Docker Builds
+* **Problem:** The first Docker image, built on a Windows machine, failed on the Linux-based Fargate task with an `os.add_dll_directory` error.
+* **Solution:** I diagnosed that the Python libraries were OS-specific. I rebuilt the container using a Linux build environment (`public.ecr.aws/sam/build-python3.12`) to create a compatible `linux/amd64` image.
 
-### Challenge \#2: Silent Event Processing Failures
+#### Challenge: Local Docker Networking & File Access
+* **Problem:** `docker build` failed with `net::ERR_NAME_NOT_RESOLVED` due to a local DNS issue. `docker run` failed with an `invalid characters` error when trying to mount local volumes.
+* **Solution:** I fixed the network error by configuring my system's DNS to `8.8.8.8`. I fixed the volume error by replacing the `%cd%` shortcut with the full, absolute file path in the `docker run` command.
 
-**Problem:** My Fargate task wasn't launching. EventBridge metrics showed `FailedInvocations` but no CloudWatch logs were generated. The system was failing silently.
+#### Challenge: Conflicting Script Logic
+* **Problem:** The script failed during local testing because it was trying to find S3 environment variables that only exist in the cloud.
+* **Solution:** I rewrote the `process_audio.py` script to be "smart." It now checks for the presence of `S3_BUCKET` and `S3_KEY` environment variables to automatically determine whether to run in "Fargate Mode" (using S3) or "Local Test Mode" (using local folders).
 
-**Solution:**
+---
+### Phase 3: The Cloud Pipeline (IAM & EventBridge)
 
-1.  **Configured a Dead-Letter Queue (DLQ)** on the EventBridge rule, which sent the failed event payloads to an SQS queue.
-2.  Inspecting the DLQ messages revealed the true error: `iam:PassRole` permission was missing.
-3.  **Fixed** by adding `iam:PassRole` for both the `TaskRoleArn` and `ExecutionRoleArn` to the EventBridge rule's IAM role.
+This was the most complex phase, involving debugging the "invisible" connections between services.
 
-**Impact:** Gained critical visibility into the distributed system and learned to debug asynchronous flows.
+#### Challenge: The Silent Failure (Zero Invocations)
+* **Problem:** Uploading a file to S3 did nothing. EventBridge `Invocations` metrics were at 0.
+* **Solution:** I diagnosed that the S3 bucket itself was not configured to send events. I fixed this by enabling the **"Amazon EventBridge"** notification in the S3 bucket's properties, which "wired up" the trigger.
 
------
+#### Challenge: The Failed Invocation
+* **Problem:** The rule now triggered but showed `FailedInvocations: 1`. The Fargate task was still not running, and there were no logs.
+* **Solution:** I configured a **Dead-Letter Queue (DLQ)** for the EventBridge rule, which sent the failed event payloads to an SQS queue. This allowed me to read the hidden error messages.
 
-### Challenge \#3: S3 CORS Policy Failure
+#### Challenge: Wrong ECS Cluster Type
+* **Problem:** The first DLQ error message was `No Container Instances were found in your cluster`.
+* **Solution:** I realized I had created an **EC2-type** cluster. I deleted it and created a new **Fargate** ("Networking only") cluster.
 
-**Problem:** The browser-based `axios` upload to the pre-signed S3 URL was blocked by a CORS policy, even with `AllowedOrigins: ["*"]`.
+#### Challenge: The `ecs:RunTask` Permission
+* **Problem:** The DLQ now showed an `AccessDeniedException`.
+* **Solution:** I diagnosed that the EventBridge rule's default IAM role didn't have permission to start a Fargate task. I fixed this by creating a **new role for the rule** with the `ecs:RunTask` permission.
 
-**Solution:** The wildcard `*` does not work for credentialed requests (which pre-signed URLs are). The fix was to explicitly specify the origin in the S3 bucket's CORS policy:
+#### Challenge: The `iam:PassRole` Permission
+* **Problem:** It *still* failed. The DLQ now showed `is not authorized to perform: iam:PassRole`.
+* **Solution:** I diagnosed the most advanced IAM error in the chain: EventBridge needed permission to *pass* my `FargateTaskS3Role` *to* the task. I fixed this by adding an `iam:PassRole` policy to the EventBridge role.
 
-```json
-"AllowedOrigins": [
-    "http://localhost:5173",
-    "[https://main.d3pqqc4w1tm533.amplifyapp.com](https://main.d3pqqc4w1tm533.amplifyapp.com)"
-]
-```
+#### Challenge: `CannotPullContainerError`
+* **Problem:** The task finally started but then stopped immediately.
+* **Solution:** I checked the "Stopped reason" in ECS, which was `CannotPullContainerError`. This meant the Fargate task's **Execution Role** didn't have permission to access ECR. I fixed this by adding the `AmazonEC2ContainerRegistryReadOnly` policy to the `ecsTaskExecutionRole`.
 
-**Impact:** Solved the final, most common bug in direct-to-S3 upload architectures.
+---
+### Phase 4: The Frontend API (Amplify)
 
------
+#### Challenge: `InvalidApiName` & `Amplify has not been configured`
+* **Problem:** My React app couldn't find the API.
+* **Solution:** I identified this as a race condition. My `Amplify.configure()` call was in the wrong file (`App.js`). I fixed it by moving the configuration to the absolute entry point of my app, **`main.jsx`**, ensuring Amplify was initialized before any components rendered.
 
-### Challenge \#4: Amplify Build Environment Conflicts
+#### Challenge: The `500 Internal Server Error`
+* **Problem:** My API calls were crashing the Lambda function.
+* **Solution:** I used **CloudWatch Logs** to find the error. The function was still running the default "Hello World!" template. I fixed this by deploying my real `index.py` code.
 
-**Problem:** The Amplify backend build kept failing, unable to find the correct Python 3.12 runtime (`pipenv` errors).
+#### Challenge: The Final CORS Boss
+* **Problem:** My file upload was blocked by a CORS policy, even though I had `AllowedOrigins: ["*"]`.
+* **Solution:** I diagnosed that the S3 wildcard `*` does not work for credentialed pre-signed URL requests. The fix was to be explicit, changing the S3 CORS policy to allow my specific origins: `http://localhost:5173` and my production URL.
 
-**Solution:** After trying multiple fixes, the most robust solution was to edit the `amplify.yml` build spec and explicitly set the runtime versions for the build container, forcing it to use the correct environment.
+#### Challenge: The `NoSuchKey` Download Error
+* **Problem:** The app showed a download link, but clicking it gave an XML `NoSuchKey` error.
+* **Solution:** I realized my Lambda was generating a download link *before* the Fargate task had finished processing. I fixed this by adding `s3_client.head_object()` to my `getDownloadUrl` logic, forcing it to confirm the file exists before returning a link.
 
-```yaml
-backend:
-  runtime-versions:
-    nodejs: 18
-    python: 3.12
-```
+---
+### Phase 5: The CI/CD Build (Amplify Hosting)
 
-**Impact:** A stable, reproducible build process and a deep understanding of how Amplify's CI/CD environment works.
+#### Challenge: Missing `amplify-meta.json`
+* **Problem:** My first Amplify-hosted build failed because it couldn't find the backend "address book."
+* **Solution:** I realized the file was in my `.gitignore`. I fixed the `.gitignore` and `git push`ed the missing file.
 
------
+#### Challenge: Python Version Hell on Build Server
+* **Problem:** The Amplify build server kept using an old Python 3.7, causing my `pipenv install` to fail.
+* **Solution:** After multiple attempts, I landed on the definitive fix: editing the `amplify.yml` to explicitly set **both** `nodejs: 18` and `python: 3.12` in the `runtime-versions` block, which forced the build environment to use the correct tools.
 
 ## Performance & Cost Metrics
 
@@ -337,20 +362,33 @@ backend:
 
 ## Connect With Me
 
-**Aditya Waghmare**  
-Cloud & DevOps Engineer | Building Production-Ready Cloud Systems
+**Aditya Waghmare**  
+Cloud Solutions Architect | AWS Enthusiast | Backend Engineer
 
-[](https://www.linkedin.com/in/xadi)
-[](mailto:adityawaghmarex@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0077B5?style=for-the-badge&logo=linkedin)](https://www.linkedin.com/in/xadi)
+[![Email](https://img.shields.io/badge/Email-Contact-D14836?style=for-the-badge&logo=gmail)](mailto:adityawaghmarex@gmail.com)
 
------
+💬 **Open to discussing:**
+- Cloud architecture patterns
+- AWS best practices
+- Serverless design strategies
+- Containerization and orchestration
 
-<div align="center"\>
+---
 
-**Built with ☕, lots of CloudWatch logs, and a passion for scalable systems.**
+## ⭐ Show Your Support
 
-*"I'm a crazy music listener and I wasn't satisfied with the 8D tools out there, so I built my own."*
+If this project helped you understand event-driven architectures, AWS services, or gave you ideas for your own cloud applications, please consider starring the repository!
 
+---
+
+<div align="center">
+
+**Built with ☕, AWS CloudWatch logs, IAM debugging, and a passion for scalable systems**
+
+*"The best architecture is the one that solves real problems, not the one that uses the most services."*
+
+</div>
 
 
 
