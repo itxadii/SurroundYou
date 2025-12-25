@@ -7,7 +7,9 @@
 [![React](https://img.shields.io/badge/React-18+-61DAFB?style=for-the-badge&logo=react)](https://reactjs.org/)
 [![Python](https://img.shields.io/badge/Python-3.12-3776AB?style=for-the-badge&logo=python)](https://www.python.org/)
 
-**[Click Here For Live Demo!](https://main.d3pqqc4w1tm533.amplifyapp.com/)**
+- **[Click Here For Live Demo!](https://main.d3pqqc4w1tm533.amplifyapp.com/)**
+
+- **[Click Here For Processing Logic Repository!](https://github.com/itxadii/SurroundYou-ECR/)**
 
 ---
 
@@ -389,6 +391,7 @@ If this project helped you understand event-driven architectures, AWS services, 
 *"I'm a crazy music listener and I wasn't satisfied with the 8D tools out there, so I built my own."*
 
 </div>
+
 
 
 
