@@ -1,6 +1,6 @@
 # 🎼 SurroundYou - Cloud-Native 8D Audio Processing Platform
 
-> Enterprise-grade serverless audio processing pipeline leveraging AWS-managed services for scalable, event-driven 8D audio transformation.
+> Production-grade serverless audio processing pipeline leveraging AWS-managed services for scalable, event-driven 8D audio transformation.
 
 [![AWS](https://img.shields.io/badge/AWS-Fargate%20%7C%20Lambda%20%7C%20S3-FF9900?style=for-the-badge&logo=amazon-aws)](https://aws.amazon.com/)
 [![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=for-the-badge&logo=docker)](https://www.docker.com/)
@@ -391,6 +391,7 @@ If this project helped you understand event-driven architectures, AWS services, 
 *"I'm a crazy music listener and I wasn't satisfied with the 8D tools out there, so I built my own."*
 
 </div>
+
 
 
 
